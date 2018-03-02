@@ -32,10 +32,10 @@ var articles = {
             <p>
                 Welcome to Article Three. This is the third experiment to help understand the strucutre of web pages. Click on home to return.
             </p>`
-    }
+    },
 };
 function createTemplate (data){
-    var titl = data.titl;
+    var title = data.title;
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
@@ -44,7 +44,7 @@ function createTemplate (data){
         <html>
             <head>
             <title>
-                ${titl}
+                ${title}
             </title>
             <meta name="viewport" content="width-deivce-width, initial-scale=1"/>
                <link href="/ui/style.css" rel="stylesheet" />
