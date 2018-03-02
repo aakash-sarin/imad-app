@@ -35,7 +35,7 @@ var articles = {
     }
 };
 function createTemplate (data){
-    var title = data.title;
+    var titl = data.titl;
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
@@ -44,7 +44,7 @@ function createTemplate (data){
         <html>
             <head>
             <title>
-                ${title}
+                ${titl}
             </title>
             <meta name="viewport" content="width-deivce-width, initial-scale=1"/>
                <link href="/ui/style.css" rel="stylesheet" />
