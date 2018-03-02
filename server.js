@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
+var articles = {
+    article_one: {
     title: 'Article One | Aakash Sarin',
     heading: 'Article One',
     date: 'March 02, 2018',
@@ -13,8 +14,26 @@ var articleOne = {
                 <p>
                     Welcome to Article One. This is an experiment to help understand the strucutre of web pages.
                 </p>`
+},
+    article_two: {
+        title: 'Article Two | Aakash Sarin',
+        heading: 'Article Two',
+        date: 'March 02, 2018',
+        content: `
+            <p>
+                Welcome to Article Two. This is the second experiment to help understand the strucutre of web pages. Click on Home to return.
+            </p>`
+    },
+    article_three: {
+        title: 'Article Three | Aakash Sarin',
+        heading: 'Article Three',
+        date: 'March 02, 2018',
+        content: `
+            <p>
+                Welcome to Article Three. This is the third experiment to help understand the strucutre of web pages. Click on home to return.
+            </p>`
+    }
 };
-
 function createTemplate (data){
     var title = data.title;
     var date = data.date;
@@ -56,16 +75,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article_one', function (req, res) {
-  res.send(createTemplate(articleOne));
-});
-
-app.get('/article_two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article_two.html'));
-});
-
-app.get('/article_three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article_three.html'));
+app.get('/:articleName', function (req, res) {
+    var articleName = req.params.artcileName;
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
